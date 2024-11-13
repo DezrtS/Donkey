@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text score;
     public TMP_Text bonus;
 
+    private float UIscore;
 
     private void Awake()
     {
@@ -26,7 +27,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateScore(float _score)
     {
-        _score++;
-        score.text = $"Score: {_score}";
+        UIscore += _score;
+        score.text = $"Score: {UIscore}";
     }
 }
