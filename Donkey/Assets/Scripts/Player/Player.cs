@@ -6,8 +6,6 @@ using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
-
-    private Transform startPosition;
     public float speed;
     public float jumpForce;
     public Rigidbody2D rb;
@@ -19,7 +17,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        startPosition = this.transform;
     }
 
     void Update()
@@ -65,7 +62,7 @@ public class Player : MonoBehaviour
 
         if (other.gameObject.name == "Base")
         {
-            this.transform.position = new Vector2(startPosition.position.x, startPosition.position.y);
+            this.transform.position = new Vector3(-8.3f, -3.22f, 0f); ;
             //Debug.Log(startPosition.position);
         }
             
