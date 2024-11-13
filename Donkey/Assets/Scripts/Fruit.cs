@@ -9,11 +9,6 @@ public class Fruit : MonoBehaviour
     public float value;
     private bool falling;
 
-    void Start()
-    {
-        value = 100f;
-    }
-    
     void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -25,12 +20,6 @@ public class Fruit : MonoBehaviour
             {
                 Falling(this.gameObject);
             }
-        }
-
-        if (other.gameObject.name == "Enemy" && falling == true)
-        {
-            Debug.Log("Hit Enemy");
-            other.gameObject.SetActive(false);
         }
     }
 }
