@@ -1,0 +1,2 @@
+C:\Users\denzi\source\repos\PowerUp\PowerUp\x64\Release\PowerUp.vcxproj.AssemblyReference.cache
+C:\Users\denzi\source\repos\PowerUp\PowerUp\x64\Release\PowerUp.vcxproj.Up2Date
