@@ -4,32 +4,28 @@ using System.Runtime.InteropServices;
 public class PowerUp : MonoBehaviour
 {
     [DllImport("PowerUp")]
-    private static extern void StartColorChange();
-
-    [DllImport("PowerUp")]
-    private static extern void StopColorChange();
-
-    [DllImport("PowerUp")]
-    private static extern bool GetNextColor(out float r, out float g, out float b, out float a);
+    private static extern bool GetNextColor(ref Color color, float deltaTime);
 
     private SpriteRenderer spriteRenderer;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        StartColorChange();
     }
 
     void Update()
     {
-        if (GetNextColor(out float r, out float g, out float b, out float a))
+        try
         {
-            spriteRenderer.color = new Color(r, g, b, a);
+            Color color = new Color();
+            if (GetNextColor(ref color, Time.deltaTime * 20))
+            {
+                spriteRenderer.color = color;
+            }
         }
-    }
+        catch
+        {
 
-    void OnDestroy()
-    {
-        StopColorChange();
+        }
     }
 }
